@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="18122"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -45,14 +46,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vXk-Zg-FVC">
-                                        <rect key="frame" x="272" y="41.5" width="48" height="50"/>
+                                        <rect key="frame" x="272" y="28" width="48" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="jUl-dW-6Qd">
                                             <imageReference key="image" image="sun.max.fill" catalog="system" symbolScale="large"/>
                                         </imageCell>
                                     </imageView>
                                     <slider toolTip="Brightness slider" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cN5-nc-onn">
-                                        <rect key="frame" x="48" y="51" width="225" height="28"/>
+                                        <rect key="frame" x="48" y="34" width="225" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <sliderCell key="cell" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="GmA-AH-3Zj"/>
                                         <connections>
@@ -60,7 +61,7 @@
                                         </connections>
                                     </slider>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FM1-iK-Ywi">
-                                        <rect key="frame" x="126" y="18" width="69" height="16"/>
+                                        <rect key="frame" x="126" y="14" width="69" height="16"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" alignment="center" title=" 000" id="0Y6-Lc-b7l">
                                             <font key="font" metaFont="system"/>
@@ -69,7 +70,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <button toolTip="Open WLED in browser" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HEa-dc-Acp">
-                                        <rect key="frame" x="285" y="18.5" width="22" height="22"/>
+                                        <rect key="frame" x="285" y="11" width="22" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="hJS-JF-XVZ">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -81,12 +82,57 @@
                                         </connections>
                                     </button>
                                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gFN-gu-esl">
-                                        <rect key="frame" x="0.0" y="41.5" width="48" height="50"/>
+                                        <rect key="frame" x="0.0" y="28" width="48" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="2fB-Hf-i94">
                                             <imageReference key="image" image="sun.max" catalog="system" symbolScale="large"/>
                                         </imageCell>
                                     </imageView>
+                                    <button toolTip="Show config" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Gc-gR-ERu">
+                                        <rect key="frame" x="95" y="69" width="49" height="26"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="bevel" bezelStyle="rounded" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="ypo-wB-7Hq">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                            <imageReference key="image" image="NSStatusUnavailable" symbolScale="large"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="changeColorRed:" target="iwo-M9-wDL" id="pPe-34-7iA"/>
+                                        </connections>
+                                    </button>
+                                    <button toolTip="Show config" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="klK-Pf-N4o">
+                                        <rect key="frame" x="152" y="68" width="49" height="26"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="bevel" bezelStyle="rounded" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="b6a-lO-KfX">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                            <imageReference key="image" image="NSStatusPartiallyAvailable" symbolScale="large"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="changeColorYellow:" target="iwo-M9-wDL" id="XJk-AK-WXr"/>
+                                        </connections>
+                                    </button>
+                                    <button toolTip="Show config" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o0Y-7J-weG">
+                                        <rect key="frame" x="209" y="62" width="49" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="bevel" bezelStyle="rounded" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="TZV-Y0-P9S">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                            <imageReference key="image" image="NSStatusAvailable" symbolScale="large"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="changeColorGreen:" target="iwo-M9-wDL" id="bE4-2p-z2B"/>
+                                        </connections>
+                                    </button>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aWX-Nk-wZQ">
+                                        <rect key="frame" x="18" y="74" width="65" height="16"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Set Color:" id="URC-5g-TAR">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
                                 </subviews>
                             </customView>
                             <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uwR-j6-3e5" userLabel="Custom View Settings">
@@ -161,7 +207,7 @@
                                 </subviews>
                             </customView>
                             <button toolTip="Show config" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wF4-2e-LkX">
-                                <rect key="frame" x="320" y="8" width="48.5" height="37"/>
+                                <rect key="frame" x="320" y="3" width="49" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="bevel" bezelStyle="rounded" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="n9d-8U-nYX">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -193,6 +239,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="NSStatusAvailable" width="16" height="16"/>
+        <image name="NSStatusPartiallyAvailable" width="16" height="16"/>
+        <image name="NSStatusUnavailable" width="16" height="16"/>
         <image name="gearshape" catalog="system" width="20" height="20"/>
         <image name="github_icon" width="24" height="24"/>
         <image name="safari" catalog="system" width="19" height="19"/>

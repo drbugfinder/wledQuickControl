@@ -91,7 +91,46 @@ class MainViewController: NSViewController {
     
   }
   
-  
+    func postValuesColor(color: Int ) {
+      
+      if(isKeyPresentInUserDefaults(key: "wledIp")){
+        
+        wledIp = defaults.value(forKey: "wledIp") as! String
+        
+        let url = URL(string: "http://\(wledIp)/json/state")!
+        var jsonData: Any = []
+        
+          switch color{
+          case 1:
+              jsonData = ["seg": [["col": [[255,0,0]]]]]
+              break
+          case 2:
+              jsonData = ["seg": [["col": [[255,200,0]]]]]
+              break
+          case 3:
+              jsonData = ["seg": [["col": [[0,255,0]]]]]
+              break
+          default:
+              jsonData = ["seg": [["col": [[255,255,255]]]]]
+              break
+          }
+        
+        
+        let bodyData = try? JSONSerialization.data(withJSONObject: jsonData)
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = bodyData
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+          let str = String(decoding: request.httpBody!, as: UTF8.self)
+                  print("BODY \n \(str)")
+          URLSession.shared.dataTask(with: request) { _,_,_ in  }.resume()
+        
+      }
+      
+    }
+
   func postValues(sendOnOff: Bool, on: Bool, sendBri: Bool, bri: Int) {
     
     if(isKeyPresentInUserDefaults(key: "wledIp")){
@@ -118,7 +157,8 @@ class MainViewController: NSViewController {
       request.httpBody = bodyData
       request.addValue("application/json", forHTTPHeaderField: "Content-Type")
       request.addValue("application/json", forHTTPHeaderField: "Accept")
-      
+        let str = String(decoding: request.httpBody!, as: UTF8.self)
+                print("BODY \n \(str)")
       URLSession.shared.dataTask(with: request) { _,_,_ in  }.resume()
       
     }
@@ -206,7 +246,19 @@ class MainViewController: NSViewController {
     
   }
   
-  
+  @IBAction func changeColorRed(_ sender: Any) {
+    print("Change Color to red...")
+      postValuesColor(color: 1)
+  }
+  @IBAction func changeColorYellow(_ sender: Any) {
+    print("Change Color to yellow...")
+      postValuesColor(color: 2)
+  }
+  @IBAction func changeColorGreen(_ sender: Any) {
+    print("Change Color to green...")
+      postValuesColor(color: 3)
+  }
+    
   @IBAction func changeBrightnessSlider(_ sender: Any) {
     
     let event = NSApp.currentEvent!
